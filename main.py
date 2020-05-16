@@ -3,7 +3,8 @@ import file_reader
 import google_home_integration
 import file_helper
 
-relay_service_local_address = 'http://192.168.0.111:3000/assistant'
+pm2_log_path = "C:\\Users\\d.stachura\\.pm2\\logs\\www-out.log"  
+relay_service_local_address = '{0}/assistant'.format(file_helper.get_server_ip_address(pm2_log_path))
 file_name_to_download = 'product_list.json'
 downloaded_file_name = 'downloaded_file.json'
 
