@@ -16,5 +16,4 @@ def ProcessIRRemote(connection, key_name):
         #ignore command repeats
         if (sequence != "00" and command == key_name):
            return True
-        else:
-            return False
+    return False
