@@ -9,7 +9,7 @@ conn = RawConnection()
 
 while True:
     if remote_control_helper.ProcessIRRemote(conn, 'KEY_RECORD'):      
-        pm2_log_path = "C:\\Users\\d.stachura\\.pm2\\logs\\www-out.log"  
+        pm2_log_path = "/home/pi/.pm2/logs/www-out.log"  
         relay_service_local_address = '{0}/assistant'.format(file_helper.get_server_ip_address(pm2_log_path))
         file_name_to_download = 'product_list.json'
         downloaded_file_name = 'downloaded_file.json'
