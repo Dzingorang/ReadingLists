@@ -9,18 +9,26 @@ def get_data_from_file(file_path):
         
 def prepare_text_to_be_read(close_to_expire_product_list):
     text = ''
-
+    close_to_expire_product_list.sort(key=lambda  x: int(x[1]), reverse = True) 
     if len(close_to_expire_product_list) == 0:
         text = 'There is no product with close expiration date!'
     else:
         for row in close_to_expire_product_list:
             days_to_expire_text = ''
-            if int(row[1]) > 1:
-                days_to_expire_text = '{} days. '.format(row[1])
-            else:
-                days_to_expire_text = '{} day. '.format(row[1])
+            if int(row[1]) > 0:
+                if int(row[1]) > 1:
+                    days_to_expire_text = '{} days. '.format(row[1])
+                else:
+                    days_to_expire_text = '{} day. '.format(row[1])
 
-            text += '{} will expire in {}! '.format(row[0], days_to_expire_text)
+                text += '{} will expire in {}! '.format(row[0], days_to_expire_text)
+            else:
+                if int(row[1]) < -1:
+                    days_to_expire_text = '{} days. '.format(row[1])
+                else:
+                    days_to_expire_text = '{} day. '.format(row[1])
+
+                text += '{} expired {} ago! '.format(row[0], days_to_expire_text)
 
     return text
 
