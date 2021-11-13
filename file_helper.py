@@ -2,6 +2,7 @@ from ftplib import FTP
 import os
 import fileinput
 from pathlib import Path
+from typing_extensions import TypedDict
 
 
 def get_file_from_ftp(file_path, file_name):
@@ -31,3 +32,4 @@ def get_server_ip_address(log_path):
             ip_address = row
             break
     return ip_address
+    # test
